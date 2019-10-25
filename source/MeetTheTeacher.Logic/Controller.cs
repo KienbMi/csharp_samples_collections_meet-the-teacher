@@ -9,41 +9,39 @@ namespace MeetTheTeacher.Logic
     /// </summary>
     public class Controller
     {
-        private readonly List<Teacher> _teachers;
-        private readonly Dictionary<string, int> _details;
+        private readonly List<Teacher> _teachers = new List<Teacher>();
+        private readonly Dictionary<string, int> _details = new Dictionary<string, int>();
 
         /// <summary>
         /// Liste für Sprechstunden und Dictionary für Detailseiten anlegen
         /// </summary>
         public Controller(string[] teacherLines, string[] detailsLines)
         {
-
             InitDetails(detailsLines);
-            InitTeachers(detailsLines);
-            
-            
-            //"BILLINGER Franz; Montag; 4.EH; 10:55 - 11:45 h; 142; ; Dipl.Päd.Dipl.- HTL - Ing.; FOL",
-
-
-
-
-
-
-
-
-            
-
+            InitTeachers(teacherLines);
         }
 
-        public int Count => throw new NotImplementedException();
+        public int Count => _teachers.Count;
 
-        public int CountTeachersWithoutDetails => throw new NotImplementedException();
-
+        public int CountTeachersWithoutDetails => _teachers.Count - CountTeachersWithDetails;
 
         /// <summary>
         /// Anzahl der Lehrer mit Detailinfos in der Liste
         /// </summary>
-        public int CountTeachersWithDetails => throw new NotImplementedException();
+        public int CountTeachersWithDetails
+        {
+            get
+            {
+                int counter = 0;
+
+                foreach (var teacher in _teachers)
+                {
+                    if (teacher is TeacherWithDetail)
+                        counter++;
+                }
+                return counter;
+            }
+        }
 
         /// <summary>
         /// Aus dem Text der Sprechstundendatei werden alle Lehrersprechstunden 
@@ -53,7 +51,47 @@ namespace MeetTheTeacher.Logic
         /// <returns>Anzahl der eingelesenen Lehrer</returns>
         private void InitTeachers(string[] lines)
         {
-            throw new NotImplementedException();
+            if (lines == null)
+                throw new ArgumentNullException(nameof(lines));
+
+            foreach (var line in lines)
+            {
+                //"BILLINGER Franz; Montag; 4.EH; 10:55 - 11:45 h; 142; ; Dipl.Päd.Dipl.- HTL - Ing.; FOL",
+                string[] data = line.Split(';');
+
+                if (data!= null &&
+                    data.Length >= 5)
+                {
+                    string fullname = data[0];
+                    string weekday = data[1];
+                    string lessonNr = data[2];
+                    string time = data[3];
+                    string roomNr = data[4];
+                    int id;
+                    
+                    if(_details.TryGetValue(fullname.ToLower(), out id))
+                    { 
+                        _teachers.Add(
+                            new TeacherWithDetail(
+                                fullname,
+                                weekday,
+                                time,
+                                lessonNr,
+                                roomNr,
+                                id));
+                    }
+                    else
+                    {
+                        _teachers.Add(
+                            new Teacher(
+                                fullname,
+                                weekday,
+                                time,
+                                lessonNr,
+                                roomNr));
+                    }
+                }
+            }
         }
 
 
@@ -63,7 +101,17 @@ namespace MeetTheTeacher.Logic
         /// </summary>
         public void DeleteIgnoredTeachers(string[] names)
         {
-            throw new NotImplementedException();
+            if (names == null)
+                throw new ArgumentNullException(nameof(names));
+
+            foreach (var name in names)
+            {
+                int index = FindIndexForTeacher(name);
+                if (index >= 0)
+                {
+                    _teachers.RemoveAt(index);
+                }
+            }
         }
 
         /// <summary>
@@ -73,7 +121,22 @@ namespace MeetTheTeacher.Logic
         /// <returns>Index oder -1, falls nicht gefunden</returns>
         private int FindIndexForTeacher(string teacherName)
         {
-            throw new NotImplementedException();
+            if (teacherName == null)
+                throw new ArgumentNullException(nameof(teacherName));
+
+            int index = -1;
+            int counter = 0;
+
+            foreach (var teacher in _teachers)
+            {
+                if (teacher.Name.ToLower().CompareTo(teacherName.ToLower()) == 0)
+                {
+                    index = counter;
+                    break;
+                }
+                counter++;
+            }
+            return index;
         }
 
 
@@ -83,13 +146,24 @@ namespace MeetTheTeacher.Logic
         /// </summary>
         private void InitDetails(string[] lines)
         {
-            //"Billinger Franz; 2219"
+            if (lines == null)
+                throw new ArgumentNullException(nameof(lines));
 
+            foreach (var line in lines)
+            {
+                //"Billinger Franz; 2219"
+                string[] data = line.Split(';');
 
-
-
-
-            throw new NotImplementedException();
+                string fullname;
+                int id;
+                if (data != null && 
+                    data.Length >= 2 && 
+                    int.TryParse(data[1], out id))
+                {
+                    fullname = data[0].ToLower();
+                    _details.Add(fullname, id);
+                }
+            }
         }
 
         /// <summary>

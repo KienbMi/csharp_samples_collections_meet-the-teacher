@@ -11,15 +11,16 @@ namespace MeetTheTeacher.Logic
     /// </summary>
     public class Teacher
     {
-        private string _fullname;
         private string _weekday;
         private string _time;
         private string _lessonNr;
         private string _roomNr;
 
+        public string Name { get; set; }
+
         public Teacher(string fullname, string weekday, string time, string lessonNr, string roomNr)
         {
-            _fullname = fullname;
+            Name = fullname;
             _weekday = weekday;
             _time = time;
             _lessonNr = lessonNr;
@@ -28,7 +29,7 @@ namespace MeetTheTeacher.Logic
 
         public virtual string GetHtmlForName()
         {
-            return $"{_fullname}";
+            return $"{Name}";
         }
     }
 }
