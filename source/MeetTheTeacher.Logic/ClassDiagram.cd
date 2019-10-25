@@ -3,7 +3,7 @@
   <Class Name="MeetTheTeacher.Logic.Teacher">
     <Position X="5.5" Y="0.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAgAAQEAAEAAAQEAAAAAgAAAAAAAAAAQAA=</HashCode>
+      <HashCode>IAAAAAAAAAAgAAQEAAiAAAQAAAAAAABAAAAAAAAAQAA=</HashCode>
       <FileName>Teacher.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

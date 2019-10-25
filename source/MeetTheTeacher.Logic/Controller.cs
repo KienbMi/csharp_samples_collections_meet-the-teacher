@@ -56,39 +56,43 @@ namespace MeetTheTeacher.Logic
 
             foreach (var line in lines)
             {
-                //"BILLINGER Franz; Montag; 4.EH; 10:55 - 11:45 h; 142; ; Dipl.Päd.Dipl.- HTL - Ing.; FOL",
-                string[] data = line.Split(';');
-
-                if (data!= null &&
-                    data.Length >= 5)
+                bool isHeader = line.Contains("Name;Tag;EH;Zeit;Raum;Bemerkung");
+                if (isHeader == false)
                 {
-                    string fullname = data[0];
-                    string weekday = data[1];
-                    string lessonNr = data[2];
-                    string time = data[3];
-                    string roomNr = data[4];
-                    int id;
-                    
-                    if(_details.TryGetValue(fullname.ToLower(), out id))
-                    { 
-                        _teachers.Add(
-                            new TeacherWithDetail(
-                                fullname,
-                                weekday,
-                                time,
-                                lessonNr,
-                                roomNr,
-                                id));
-                    }
-                    else
+                    //"BILLINGER Franz; Montag; 4.EH; 10:55 - 11:45 h; 142; ; Dipl.Päd.Dipl.- HTL - Ing.; FOL",
+                    string[] data = line.Split(';');
+
+                    if (data != null &&
+                        data.Length >= 5)
                     {
-                        _teachers.Add(
-                            new Teacher(
-                                fullname,
-                                weekday,
-                                time,
-                                lessonNr,
-                                roomNr));
+                        string fullname = data[0];
+                        string weekday = data[1];
+                        string lessonNr = data[2];
+                        string time = data[3];
+                        string roomNr = data[4];
+                        int id;
+
+                        if (_details.TryGetValue(fullname.ToLower(), out id))
+                        {
+                            _teachers.Add(
+                                new TeacherWithDetail(
+                                    fullname,
+                                    weekday,
+                                    time,
+                                    lessonNr,
+                                    roomNr,
+                                    id));
+                        }
+                        else
+                        {
+                            _teachers.Add(
+                                new Teacher(
+                                    fullname,
+                                    weekday,
+                                    time,
+                                    lessonNr,
+                                    roomNr));
+                        }
                     }
                 }
             }
@@ -172,8 +176,27 @@ namespace MeetTheTeacher.Logic
         /// <returns>Text für die Html-Tabelle</returns>
         public string GetHtmlTable()
         {
-            throw new NotImplementedException();
-        }
+            StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("<table id=\"tabelle\">");
+            sb.AppendLine();
+            sb.AppendLine("<tr>");
+            sb.AppendLine("<th align=\"center\">Name</th>");
+            sb.AppendLine("<th align=\"center\">Tag</th>");
+            sb.AppendLine("<th align=\"center\">Zeit</th>");
+            sb.AppendLine("<th align=\"center\">Raum</th>");
+            sb.AppendLine("</tr>");
+            sb.AppendLine();
+            sb.AppendLine();
+
+            foreach (var teacher in _teachers)
+            {
+                sb.AppendLine(teacher.GetTeacherHtmlRow());
+            }
+
+            sb.AppendLine("</table>");
+
+            return sb.ToString();
+        }
     }
 }

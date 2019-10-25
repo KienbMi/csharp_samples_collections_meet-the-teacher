@@ -1,4 +1,4 @@
-﻿<table id="tabelle">
+<table id="tabelle">
 
 <tr>
 <th align="center">Name</th>
@@ -9,24 +9,10 @@
 
 
 <tr>
-<td align="left">ABERGER Christian</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-
-<tr>
 <td align="left"><a href="?id=2445">AISTLEITNER Gerald</a></td>
 <td align="left">Donnerstag</td>
 <td align="left">17:20 - 18:05 h</td>
 <td align="left">131</td>
-</tr>
-
-<tr>
-<td align="left">AITENBICHLER Herbert</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
 </tr>
 
 <tr>
@@ -118,13 +104,6 @@
 <td align="left">Dienstag</td>
 <td align="left">15:30 - 16:20 h</td>
 <td align="left">103</td>
-</tr>
-
-<tr>
-<td align="left"><a href="?id=2225">BUGNER Sorin</a></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
 </tr>
 
 <tr>
@@ -226,13 +205,6 @@
 </tr>
 
 <tr>
-<td align="left">HANNESSCHL&#196;GER J&#252;rgen</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-
-<tr>
 <td align="left"><a href="?id=2244">HASLINGER Klaus</a></td>
 <td align="left">Montag</td>
 <td align="left">11:50 - 12:40 h</td>
@@ -240,10 +212,10 @@
 </tr>
 
 <tr>
-<td align="left">HAUNSCHMID Wilfried</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left"><a href="?id=587">HOFER Gerhard</a></td>
+<td align="left">Montag</td>
+<td align="left">10:55 - 11:45 h</td>
+<td align="left">E08</td>
 </tr>
 
 <tr>
@@ -251,13 +223,6 @@
 <td align="left">Dienstag</td>
 <td align="left">14:35 - 15:25 h</td>
 <td align="left">254</td>
-</tr>
-
-<tr>
-<td align="left"><a href="?id=587">HOFER Gerhard</a></td>
-<td align="left">Montag</td>
-<td align="left">10:55 - 11:45 h</td>
-<td align="left">E08</td>
 </tr>
 
 <tr>
@@ -352,17 +317,17 @@
 </tr>
 
 <tr>
-<td align="left"><a href="?id=2253">KODRE Christina</a></td>
-<td align="left">Freitag</td>
-<td align="left">13:30 - 14:20 h</td>
-<td align="left">226</td>
-</tr>
-
-<tr>
 <td align="left"><a href="?id=436">K&#214;CK Gerald</a></td>
 <td align="left">Donnerstag</td>
 <td align="left">13:40 - 14:30 h</td>
 <td align="left">E74</td>
+</tr>
+
+<tr>
+<td align="left"><a href="?id=2253">KODRE Christina</a></td>
+<td align="left">Freitag</td>
+<td align="left">13:30 - 14:20 h</td>
+<td align="left">226</td>
 </tr>
 
 <tr>
@@ -377,13 +342,6 @@
 <td align="left">Donnerstag</td>
 <td align="left">13:40 - 14:30 h</td>
 <td align="left">103</td>
-</tr>
-
-<tr>
-<td align="left"><a href="?id=2217">LEHENBAUER Christian</a></td>
-<td align="left">Mittwoch</td>
-<td align="left">13:35 - 14:30 h</td>
-<td align="left">142</td>
 </tr>
 
 <tr>
@@ -436,10 +394,10 @@
 </tr>
 
 <tr>
-<td align="left">NIEDERMAIER Maren</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">Name</td>
+<td align="left">Tag</td>
+<td align="left">Zeit</td>
+<td align="left">Raum</td>
 </tr>
 
 <tr>
@@ -590,13 +548,6 @@
 </tr>
 
 <tr>
-<td align="left">SCHREIBER Richard</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-
-<tr>
 <td align="left"><a href="?id=2363">SCHR&#214;DER Birgit</a></td>
 <td align="left">Donnerstag</td>
 <td align="left">11:50 - 12:40 h</td>
@@ -650,20 +601,6 @@
 <td align="left">Dienstag</td>
 <td align="left">11:50 - 12:40 h</td>
 <td align="left">131</td>
-</tr>
-
-<tr>
-<td align="left">STRECKER Alexander </td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-
-<tr>
-<td align="left">STRUBER Ingrid</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
 </tr>
 
 <tr>

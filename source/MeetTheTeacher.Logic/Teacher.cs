@@ -9,7 +9,7 @@ namespace MeetTheTeacher.Logic
     /// Verwaltet einen Eintrag in der Sprechstundentabelle
     /// Basisklasse für TeacherWithDetail
     /// </summary>
-    public class Teacher
+    public class Teacher : IComparable<Teacher>
     {
         private string _weekday;
         private string _time;
@@ -29,7 +29,31 @@ namespace MeetTheTeacher.Logic
 
         public virtual string GetHtmlForName()
         {
-            return $"{Name}";
+            return $"{WebUtility.HtmlEncode(Name)}";
+        }
+
+        public string GetTeacherHtmlRow()
+        {   
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"<tr>");
+            sb.AppendLine($"<td align=\"left\">{GetHtmlForName()}</td>");
+            sb.AppendLine($"<td align=\"left\">{_weekday}</td>");
+            sb.AppendLine($"<td align=\"left\">{_time}</td>");
+            sb.AppendLine($"<td align=\"left\">{_roomNr}</td>");
+            sb.AppendLine($"</tr>");
+
+            return sb.ToString();
+        }
+
+        public int CompareTo(Teacher other)
+        {
+            return Name.CompareTo(other.Name);
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(Name)}: {Name}";
         }
     }
 }
