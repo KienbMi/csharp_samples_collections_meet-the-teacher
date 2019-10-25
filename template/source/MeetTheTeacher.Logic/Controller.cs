@@ -17,22 +17,6 @@ namespace MeetTheTeacher.Logic
         /// </summary>
         public Controller(string[] teacherLines, string[] detailsLines)
         {
-
-            InitDetails(detailsLines);
-            InitTeachers(detailsLines);
-            
-            
-            //"BILLINGER Franz; Montag; 4.EH; 10:55 - 11:45 h; 142; ; Dipl.Päd.Dipl.- HTL - Ing.; FOL",
-
-
-
-
-
-
-
-
-            
-
         }
 
         public int Count => throw new NotImplementedException();
@@ -83,12 +67,6 @@ namespace MeetTheTeacher.Logic
         /// </summary>
         private void InitDetails(string[] lines)
         {
-            //"Billinger Franz; 2219"
-
-
-
-
-
             throw new NotImplementedException();
         }
 

@@ -31,7 +31,7 @@ namespace MeetTheTeacher.UI
             throw new NotImplementedException("Ausgabe lt. Angabe (siehe Screenshots) implementieren!");
 
             string html = ctrl.GetHtmlTable();
-            File.WriteAllText(Path.Combine(pathToOutputFiles, resultFileName), html, Encoding.UTF8);
+            File.WriteAllText(Path.Combine(pathToOutputFiles, resultFileName), html, Encoding.Default);
         }
     }
 }
