@@ -176,6 +176,7 @@ namespace MeetTheTeacher.Logic
         /// <returns>Text für die Html-Tabelle</returns>
         public string GetHtmlTable()
         {
+            _teachers.Sort();
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("<table id=\"tabelle\">");

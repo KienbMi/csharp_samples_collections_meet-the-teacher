@@ -27,6 +27,7 @@ namespace MeetTheTeacher.UI
             string[] ignoredNames = File.ReadAllLines(Path.Combine(pathToInputFiles, ignoredTeachersFileName), Encoding.UTF8);
 
             Controller ctrl = new Controller(teacherLines, detailLines);
+            ctrl.DeleteIgnoredTeachers(ignoredNames);
 
             Console.WriteLine($"{ctrl.Count} Lehrersätze eingelesen");
             Console.WriteLine();
